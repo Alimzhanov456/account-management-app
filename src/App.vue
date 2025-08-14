@@ -1,47 +1,62 @@
-<script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
-</script>
-
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+  <div id="app">
+    <AccountForm />
+  </div>
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
+<script setup lang="ts">
+import AccountForm from './components/AccountForm.vue'
+</script>
+
+<style>
+#app {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
+.el-card {
+  --el-card-border-radius: 8px;
 }
 
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
+.el-button {
+  border-radius: 6px;
+}
 
-  .logo {
-    margin: 0 2rem 0 0;
-  }
+.el-input__wrapper {
+  border-radius: 6px;
+}
 
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
+.el-select .el-input__wrapper {
+  border-radius: 6px;
+}
+
+.account-item-wrapper {
+  animation: slideInUp 0.3s ease-out;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Отзывчивость */
+@media (max-width: 768px) {
+  .account-form {
+    padding: 16px;
+  }
+  
+  .form-header {
+    padding: 16px;
+  }
+  
+  .main-title {
+    font-size: 24px;
   }
 }
 </style>
